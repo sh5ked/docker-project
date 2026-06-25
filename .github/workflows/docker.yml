@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    run-on: alpine-latest
+    runs-on: alpine-latest
     steps:
       -name: Checkout code
       uses: action/checkout@v4
@@ -23,4 +23,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/users-managment:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }} /users-managment:latest
