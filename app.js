@@ -34,9 +34,9 @@ app.use(
 );
 connectDB();
 
-if(!process.env.JWT_SECRET){
+if (!process.env.JWT_SECRET) {
     console.error("JWT_SECRET, is not defined in enviroment varaiables");
-    process.exit(1);        
+    process.exit(1);
 }
 
 app.get("/", (req, res) => {
@@ -44,15 +44,15 @@ app.get("/", (req, res) => {
 })
 
 app.get("/health", (req, res) => {
- const dbStates = ["connected", "disconnected", "connecting", "disconnecting"];
- const dbConnected = mongoose.connection.readyState === 1;
+    const dbStates = ["disconnected", "connected", "connecting", "disconnecting"];
+    const dbConnected = mongoose.connection.readyState === 1;
 
- res.status(dbConnected ? 200 : 503).json({
-    status: dbConnected ? "ok" : "error",
-    db: dbStates[mongoose.connection.readyState],
-    runtime: `${Math.floor(process.uptime())}s`,    
-    environment: process.env.NODE_ENV || "development"
- })
+    res.status(dbConnected ? 200 : 503).json({
+        status: dbConnected ? "ok" : "error",
+        db: dbStates[mongoose.connection.readyState],
+        runtime: `${Math.floor(process.uptime())}s`,
+        environment: process.env.NODE_ENV || "development"
+    })
 });
 
 app.use("/api/users", userRoutes);
