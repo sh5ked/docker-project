@@ -1,4 +1,7 @@
-const API_URL = "http://localhost:3000/api/users";
+const API_URL =
+  process.env.NODE_ENV === "production"
+    ? `${process.env.RENDER_EXTERNAL_URL}/api/users`
+    : "http://localhost:3000/api/users";
 
 // אלמנטים מה-HTML - הותאמו בדיוק ל-ID שקיימים בקובץ ה-HTML שלך כדי שלא נקבל TypeError
 const totalUsers = document.getElementById('totalUsers');
