@@ -39,9 +39,6 @@ if (!process.env.JWT_SECRET) {
     process.exit(1);
 }
 
-app.get("/", (req, res) => {
-    res.send('Welcome to our users managment app.');
-})
 
 app.get("/health", (req, res) => {
     const dbStates = ["disconnected", "connected", "connecting", "disconnecting"];
