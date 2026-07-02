@@ -1,7 +1,9 @@
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? `${process.env.RENDER_EXTERNAL_URL}/api/users`
-    : "http://localhost:3000/api/users";
+// 1. זיהוי אוטומטי היכן הדפדפן רץ (במחשב המקומי או בשרת מרוחק)
+const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+const API_URL = isLocalhost
+    ? "http://localhost:3000/api/users"
+    : "https://docker-project-7vyv.onrender.com/api/users"; // הכתובת של ה-Backend שלך ב-Render
 
 // אלמנטים מה-HTML - הותאמו בדיוק ל-ID שקיימים בקובץ ה-HTML שלך כדי שלא נקבל TypeError
 const totalUsers = document.getElementById('totalUsers');
