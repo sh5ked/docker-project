@@ -1,0 +1,16 @@
+
+services:
+  web-app:
+    # 1. דריסת פקודת ההרצה למצב פיתוח עם ה-scripts הקיים שלך
+    command: npm start
+    
+    # 2. שינוי משתני סביבה למצב פיתוח (עובד כמילון/Object כדי לדרוס בבטחה)
+    environment:
+      NODE_ENV: development
+    
+    # 3. הזרקת הקוד מהמחשב לקונטיינר בזמן אמת (Bind Mount)
+    volumes:
+      # מחבר את התיקייה הנוכחית במחשב לתיקיית app/ בקונטיינר
+      - .:/app
+      # אנונימי ווליום שמגן על ה-node_modules של הקונטיינר שלא יידרס על ידי המחשב
+      - /app/node_modules
