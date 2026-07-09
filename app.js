@@ -15,10 +15,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
+    "http://localhost",              
+    "http://127.0.0.1",         
     "http://127.0.0.1:5501",
     "http://localhost:3000",
     process.env.RENDER_EXTERNAL_URL
-].filter(Boolean)
+].filter(Boolean);
 
 app.use(express.json());
 app.use(

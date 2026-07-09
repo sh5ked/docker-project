@@ -33,4 +33,4 @@ services:
       # הזרקת קובץ ההגדרות שלנו לתוך נתיב ההגדרות המובנה של Nginx בקונטיינר
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
-      - web-app # מוודא ש-Nginx יעלה רק אחרי שהאפליקציה מוכנה לקבל בקשות
+      - web-app 

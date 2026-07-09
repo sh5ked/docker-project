@@ -2,10 +2,10 @@
 const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
 const API_URL = isLocalhost
-    ? "http://localhost:3000/api/users"
-    : "https://docker-project-7vyv.onrender.com/api/users"; // הכתובת של ה-Backend שלך ב-Render
-
-// אלמנטים מה-HTML - הותאמו בדיוק ל-ID שקיימים בקובץ ה-HTML שלך כדי שלא נקבל TypeError
+    ? "/api/users"
+    : "https://docker-project-7vyv.onrender.com/api/users";
+    //שונה מ-3000 כדי שיעבור דרך Nginx (פורט 80) ויפתור את בעיית ה-CORS
+    
 const totalUsers = document.getElementById('totalUsers');
 const average = document.getElementById('average'); // התאמה ל-ID בקובץ ה-HTML (במקום avgAge)
 const addUserForm = document.getElementById('addUserForm');
